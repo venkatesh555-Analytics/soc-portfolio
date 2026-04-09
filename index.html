@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K Venkatesh | Soc Analyst</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0f172a;
+  --text: #ffffff;
+  --card: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.1);
+  --accent: #6366f1;
+}
+
+.light-mode {
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --card: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --accent: #4f46e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* PROJECT GALLERY */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gallery-img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+}
+
+/* Project Button */
+.project-btn {
+  margin-top: 25px;
+  display: inline-block;
+}
+
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 10%;
+  position: fixed;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 600;
+}
+
+.toggle {
+  background: var(--accent);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+/* SECTIONS */
+section {
+  padding: 0px 12% 120px 12%;
+  max-width: 1100px;
+  margin: auto;
+  scroll-margin-top: 120px;
+}
+
+section:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 38px;
+  margin-bottom: 35px;
+  font-weight: 700;
+}
+
+h3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* HERO */
+.hero {
+  padding-top: 180px;
+}
+
+.hero p {
+  margin-top: 15px;
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  margin-bottom: 30px;
+}
+
+/* ABOUT LAYOUT */
+.about-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-left {
+  flex: 1;
+  text-align: center;
+}
+
+.about-right {
+  flex: 2;
+}
+
+/* BULLETS */
+.bullet-list {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.bullet-list li {
+  margin-bottom: 8px;
+}
+
+/* SKILLS */
+.skills {
+  margin-top: 20px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin: 5px 6px 0 0;
+  color: white;
+}
+
+/* IMAGES */
+.profile-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+}
+
+.project-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+/* CERTIFICATES */
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.certificate-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-6px);
+}
+
+.certificate-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+}
+
+/* BUTTONS */
+.certificate-buttons {
+  margin-top: 15px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.outline-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* FADE */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 60px 0;
+  opacity: 0.6;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>KV</strong></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+    <span class="toggle" onclick="toggleTheme()">Toggle</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero fade-section">
+  <h1>Detecting Threats, Secuirity Systems.</h1>
+  <p>
+    SOC Analyst focused on threat detection, SIEM monitoring, and incident analysis using Splunk, Wazuh,senitel and Threat Intelligence tools.
+
+.
+  </p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade-section">
+  <h2>About Me</h2>
+  <div class="card about-container">
+    <div class="about-left">
+      <img src="profile.jpg" class="profile-img">
+    </div>
+
+    <div class="about-right">
+      <p>
+SOC Analyst with hands-on experience in SIEM tools, threat detection, and log analysis. Simulated real-world attack scenarios using Splunk, Wazuh, and Kali Linux.
+</p>
+
+<ul class="bullet-list">
+<li>SIEM Monitoring (Splunk, Wazuh)</li>
+<li>Threat Detection & Log Analysis</li>
+<li>Brute Force & Web Attack Detection</li>
+<li>Threat Intelligence (VirusTotal, AbuseIPDB)</li>
+<li>MITRE ATT&CK Mapping</li>
+<li>Python Automation for IOC Enrichment</li>
+</ul>
+      <div class="skills">
+        <span class="badge">Splunk</span>
+<span class="badge">Wazuh</span>
+<span class="badge">Kali Linux</span>
+<span class="badge">Threat Intelligence</span>
+<span class="badge">VirusTotal</span>
+<span class="badge">AbuseIPDB</span>
+<span class="badge">Python</span>
+<span class="badge">SPL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade-section">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Threat Intelligence IOC Enrichment</h3>
+<ul class="bullet-list">
+<li>Developed Python-based automation to enrich IP indicators using VirusTotal and AbuseIPDB APIs</li>
+<li>Classified IPs as malicious, suspicious, or safe</li>
+<li>Handled API rate limits and large dataset processing</li>
+</ul>
+    <div class="project-gallery">
+      <img src="sales5.png" class="gallery-img">
+      <img src="sales6.png" class="gallery-img">
+    </div>
+    <a href="https://github.com/venkatesh555-Analytics/Threat-Intelligence-Feed-Integrator"
+   target="_blank"
+   class="btn project-btn">
+   View on GitHub →
+
+</a>
+
+
+  <div class="card">
+    <h3>SSH Brute Force Detection (Splunk)</h3>
+<ul class="bullet-list">
+<li>Simulated brute force attack using Kali Linux (Hydra)</li>
+<li>Detected attacker IPs using SPL queries</li>
+<li>Built dashboards to visualize attack patterns</li>
+</ul>
+    <div class="project-gallery">
+      <img src="sales1.png" class="gallery-img">
+      <img src="sales2.png" class="gallery-img">
+      
+    </div>
+    <a href="https://github.com/venkatesh555-Analytics/ssh-brute-force-detection-splunk"
+   target="_blank"
+   class="btn project-btn">
+   View on GitHub →
+
+</a>
+
+<div class="card">
+    <h3>Wazuh Threat Hunting & Dashboard</h3>
+<ul class="bullet-list">
+<li>Analyzed security logs and alerts using Wazuh SIEM</li>
+<li>Detected suspicious login activity and anomalies</li>
+<li>Built dashboards for alert severity and trends</li>
+</ul>
+    <div class="project-gallery">
+      <img src="sales4.png" class="gallery-img">
+    </div>
+    <a href="https://github.com/venkatesh555-Analytics/Threat-Hunting-Threat-Intelligence-Project-"
+   target="_blank"
+   class="btn project-btn">
+   View on GitHub →
+
+</a>
+  <div class="card">
+    <h3>Web Attack Detection (Splunk)</h3>
+<ul class="bullet-list">
+<li>Analyzed HTTP logs to detect 404/500 attack patterns</li>
+<li>Identified scanning and abnormal traffic behavior</li>
+<li>Built visual dashboards for monitoring</li>
+</ul>
+    <div class="project-gallery">
+      <img src="sales4.png" class="gallery-img">
+    </div>
+    <a href="https://github.com/venkatesh555-Analytics/splunk-web-attack-detection-"
+   target="_blank"
+   class="btn project-btn">
+   View on GitHub →
+      </a>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="fade-section">
+  <h2>Experience</h2>
+
+  <!-- Data Analyst -->
+  <div class="card">
+    <h3>Data Analyst (Project-Based Experience)</h3>
+    <p><strong>Self-Employed</strong> | 2025 – Present</p>
+
+    <ul class="bullet-list">
+      <li>Performed data analysis using SQL,Excel and python to identify trends, patterns, and KPIs</li>
+      <li>Built 5+ end-to-end Power BI dashboards across sales, energy & hospitality domains
+</li>
+      <li>Cleaned, transformed, and shaped data using Power Query (ETL)</li>
+      <li>Designed star schema data models and created DAX measures for KPI comparisons</li>
+      <li>Developed interactive reports using slicers, drill-down, and drill-through</li>
+      <li>Presented business-ready insights through clear visuals and storytelling</li>
+    </ul>
+  </div>
+
+  <!-- Graphic / UI Designer -->
+  <div class="card">
+    <h3>Data Visualization Analyst</h3>
+    <p><strong>LogomywayLLC | jan 2023 – Dec 2025</p>
+
+    <ul class="bullet-list">
+      <li>Worked on client-based remote assignments focused on visual clarity & structured layouts</li>
+      <li>Translated requirements into clean, readable visual outputs for business communication</li>
+      <li>Applied data visualization and dashboard usability principles</li>
+      <li>Strengthened requirement analysis, feedback handling, and stakeholder communication skills</li>
+    </ul>
+  </div>
+
+  <!-- Technology Process Analyst -->
+  <div class="card">
+    <h3>Technology Process Analyst</h3>
+    <p><strong>SiliconIndia</strong> | Jan 2022 – Sep 2022 | On-site</p>
+
+    <ul class="bullet-list">
+      <li>Performed advanced MS Excel analysis using Pivot Tables and formulas</li>
+      <li>Cleaned, validated, and maintained datasets for operational reporting</li>
+      <li>Created daily and weekly KPI reports for internal teams</li>
+    </ul>
+  </div>
+
+  <!-- PwC Switzerland Virtual Internship -->
+  <div class="card">
+    <h3>PwC Switzerland Virtual Internship</h3>
+    <p><strong>Remote </strong> | Aug 2024 – Sep 2024</p>
+
+    <ul class="bullet-list">
+      <li>Completed PwC Switzerland Data Analytics job simulation, building interactive Power BI dashboards using DAX and KPI modeling.</li>
+      <li>Built Call Centre and Customer Retention dashboards, analyzing revenue trends, customer segmentation, and churn patterns — contributing to a 20% reduction in handling time and 10% decrease in churn rate through data-driven insights.</li>
+      <li>Developed Diversity & Inclusion analytics dashboards, enabling real-time workforce monitoring and supporting strategic initiatives that improved hiring diversity by 15% and employee satisfaction by 20%.</li>
+    </ul>
+  </div>
+
+
+  <!-- Graphic / UI Designer -->
+  <div class="card">
+    <h3>Data Visualization Associate</h3>
+    <p><strong>DesignCrowd | sep 2020 – Dec 2021</p>
+
+    <ul class="bullet-list">
+      <li>Designed dashboard layouts and data visualization interfaces to present analytical insights clearly</li>
+      <li>Applied data storytelling techniques to communicate insights through dashboards.</li>
+      <li>Created dashboard wireframes and visualization layouts using Figma before implementation.</li>
+      <li>Strengthened requirement analysis, feedback handling, and stakeholder communication skills</li>
+    </ul>
+  </div>
+  </section>
+
+
+<!-- CERTIFICATES -->
+<section id="certificates" class="fade-section">
+  <h2>Certificates</h2>
+
+  <div class="certificate-grid">
+
+    <div class="card certificate-card">
+      <img src="certificate1.jpg" class="certificate-img">
+      <h3>Microsoft Power BI (PL-300)</h3>
+      <p>Data modeling, DAX & dashboard reporting.</p>
+      <div class="certificate-buttons">
+        <a href="certificate1.pdf" target="_blank" class="btn">View PDF</a>
+        <a href="certificate1.pdf" download class="btn outline-btn">Download</a>
+      </div>
+    </div>
+
+    <div class="card certificate-card">
+      <img src="certificate9.jpg" class="certificate-img">
+      <h3>SQL for Data Analysis</h3>
+      <p>Advanced querying & performance optimization.</p>
+      <div class="certificate-buttons">
+        <a href="certificate9.pdf" target="_blank" class="btn">View PDF</a>
+        <a href="certificate9.pdf" download class="btn outline-btn">Download</a>
+      </div>
+    </div>
+
+    <div class="card certificate-card">
+      <img src="certificate3.jpg" class="certificate-img">
+      <h3>power BI for Finance</h3>
+      <p>Dashboard storytelling & clarity best practices.</p>
+      <div class="certificate-buttons">
+        <a href="certificate3.pdf" target="_blank" class="btn">View PDF</a>
+        <a href="certificate3.pdf" download class="btn outline-btn">Download</a>
+      </div>
+    </div>
+
+    <div class="card certificate-card">
+      <img src="certificate4.jpg" class="certificate-img">
+      <h3>Power BI for Data Analyst</h3>
+      <p>complete guide power BI for Data Analyst.</p>
+      <div class="certificate-buttons">
+        <a href="certificate4.pdf" target="_blank" class="btn">View PDF</a>
+        <a href="certificate4.pdf" download class="btn outline-btn">Download</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-section">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: 
+      <a href="mailto:itsvenkatesh555@gmail.com" class="contact-link">
+        itsvenkatesh555@gmail.com
+      </a>
+    </p>
+
+    <p>LinkedIn: 
+      <a href="https://www.linkedin.com/in/venkatesh555/"
+         target="_blank"
+         class="contact-link">
+         linkedin.com/in/venkatesh555
+      </a>
+    </p>
+
+    <p>GitHub: 
+      <a href="https://github.com/venkatesh555-Analytics"
+         target="_blank"
+         class="contact-link">
+         github.com/venkatesh555-Analytics
+      </a>
+    </p>
+  </div>
+</section>
+
+
+<footer>
+  © 2026 K Venkatesh | SOC Analyst Portfolio 🛡️
+</footer>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("light-mode");
+  localStorage.setItem("theme",
+    document.body.classList.contains("light-mode") ? "light" : "dark"
+  );
+}
+
+if(localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light-mode");
+}
+
+const fadeSections = document.querySelectorAll(".fade-section");
+
+function checkFade() {
+  const triggerBottom = window.innerHeight * 0.85;
+  fadeSections.forEach(section => {
+    if(section.getBoundingClientRect().top < triggerBottom) {
+      section.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", checkFade);
+window.addEventListener("load", checkFade);
+</script>
+
+</body>
+</html>
